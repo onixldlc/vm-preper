@@ -1,5 +1,6 @@
 cd ~
 mkdir vpn
+cd vpn
 git clone https://github.com/kylemanna/docker-openvpn.git
 cd docker-openvpn/
 sudo docker build -t myownvpn .
