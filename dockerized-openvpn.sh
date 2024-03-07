@@ -1,5 +1,5 @@
 cd ~
-mkdir vpn
+mkdir -p vpn
 cd vpn
 git clone https://github.com/kylemanna/docker-openvpn.git
 cd docker-openvpn/
