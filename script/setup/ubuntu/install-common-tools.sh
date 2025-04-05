@@ -33,3 +33,12 @@ if [[ $IFS_YES =~ ^[Yy]$ ]]; then
 else
     echo "skipping containerization tools..."
 fi
+
+read -p "do you want to install networking tools? (Y/n) " IFS_YES
+IFS_YES="${IFS_YES:-Y}"
+if [[ $IFS_YES =~ ^[Yy]$ ]]; then
+    echo "installing networking tools..."
+    curl -o- "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-network-tools.sh" | sh 
+else
+    echo "skipping networking tools..."
+fi
