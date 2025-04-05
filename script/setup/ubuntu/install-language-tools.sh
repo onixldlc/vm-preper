@@ -21,7 +21,7 @@ for i in $(echo $LANGS | tr "," "\n"); do
     # install nodejs
     elif [[ $i =~ ^[2]$ ]]; then
         echo "installing nodejs..."
-        curl -sSf https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | sh
+        curl -sSf https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
         source ~/.bashrc
         nvm install node
 
@@ -33,7 +33,7 @@ for i in $(echo $LANGS | tr "," "\n"); do
     # install rust
     elif [[ $i =~ ^[4]$ ]]; then
         echo "installing rust..."
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash
 
     else
         echo "invalid selection, please select a valid language."
