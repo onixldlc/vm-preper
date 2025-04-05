@@ -14,7 +14,7 @@ echo "9. wireshark"
 echo "10. arp, ifconfig, netstat, route (net-tools)"
 echo "11. telnet"
 read -p "select networking tool you want to install (1,3,4,11): " LANGS
-LANGS="${LANGS:-1,3,4,11}"
+LANGS="${LANGS:-1,4,11}"
 
 for i in $(echo $LANGS | tr "," "\n"); do
 
