@@ -7,7 +7,7 @@ echo "2. nodejs"
 echo "3. python"
 echo "4. rust"
 read -p "select language you want to install (1,2,3,4): " LANGS
-LANGS="${LANGS:-1,2,3,4}"
+LANGS="${LANGS:-1,3,4}"
 
 for i in $(echo $LANGS | tr "," "\n"); do
 
@@ -21,7 +21,7 @@ for i in $(echo $LANGS | tr "," "\n"); do
     # install nodejs
     elif [[ $i =~ ^[2]$ ]]; then
         echo "installing nodejs..."
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | sh
+        curl -sSf https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | sh
         source ~/.bashrc
         nvm install node
 

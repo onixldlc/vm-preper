@@ -20,7 +20,7 @@ read -p "do you want to install programing tools? (Y/n) " IFS_YES
 IFS_YES="${IFS_YES:-Y}"
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "installing programing tools..."
-    curl -o- "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-language-tools.sh" | sh 
+    curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-language-tools.sh" | sh 
 else
     echo "skipping programing tools..."
 fi
@@ -29,7 +29,7 @@ read -p "do you want to install containerization tools? (Y/n) " IFS_YES
 IFS_YES="${IFS_YES:-Y}"
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "installing containerization tools..."
-    curl -o- "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-container-tools.sh" | sh 
+    curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-container-tools.sh" | sh 
 else
     echo "skipping containerization tools..."
 fi
@@ -38,7 +38,7 @@ read -p "do you want to install networking tools? (Y/n) " IFS_YES
 IFS_YES="${IFS_YES:-Y}"
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "installing networking tools..."
-    curl -o- "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-network-tools.sh" | sh 
+    curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-network-tools.sh" | sh 
 else
     echo "skipping networking tools..."
 fi
@@ -47,7 +47,7 @@ read -p "do you want to install misc tools? (Y/n) " IFS_YES
 IFS_YES="${IFS_YES:-Y}"
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "installing misc tools..."
-    curl -o- "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-misc-tools.sh" | sh 
+    curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-misc-tools.sh" | sh 
 else
     echo "skipping misc tools..."
 fi
