@@ -7,7 +7,7 @@ sudo apt install -y cmake
 wget https://github.com/aristocratos/btop/releases/download/v1.4.0/btop-x86_64-linux-musl.tbz && \
     tar -xvf btop-x86_64-linux-musl.tbz ./btop && \
     cd ./btop && \
-    make install && \
+    sudo make install && \
     cd ..
 
 # clean up
