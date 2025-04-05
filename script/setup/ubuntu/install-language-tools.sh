@@ -21,7 +21,7 @@ for i in $(echo $LANGS | tr "," "\n"); do
     # install nodejs
     elif [[ $i =~ ^[2]$ ]]; then
         echo "installing nodejs..."
-        curl -sSf https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+        source <(curl -sSf "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh")
         source ~/.bashrc
         nvm install node
 
