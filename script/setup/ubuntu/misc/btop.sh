@@ -4,11 +4,11 @@
 sudo apt install -y cmake 
 
 # install btop
-wget https://github.com/aristocratos/btop/releases/download/v1.4.0/btop-x86_64-linux-musl.tbz
-tar -xvf btop-x86_64-linux-musl.tbz ./.btop
-cd .btop
-make install 
-cd ..
+wget https://github.com/aristocratos/btop/releases/download/v1.4.0/btop-x86_64-linux-musl.tbz && \
+    tar -xvf btop-x86_64-linux-musl.tbz ./btop && \
+    cd ./btop && \
+    make install && \
+    cd ..
 
 # clean up
 rm btop-x86_64-linux-musl.tbz
