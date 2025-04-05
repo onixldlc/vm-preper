@@ -42,3 +42,12 @@ if [[ $IFS_YES =~ ^[Yy]$ ]]; then
 else
     echo "skipping networking tools..."
 fi
+
+read -p "do you want to install misc tools? (Y/n) " IFS_YES
+IFS_YES="${IFS_YES:-Y}"
+if [[ $IFS_YES =~ ^[Yy]$ ]]; then
+    echo "installing misc tools..."
+    curl -o- "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-misc-tools.sh" | sh 
+else
+    echo "skipping misc tools..."
+fi
