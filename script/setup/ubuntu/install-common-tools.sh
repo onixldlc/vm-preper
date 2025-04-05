@@ -1,0 +1,27 @@
+#!/bin/bash
+
+### setup new linux
+# install dependencies
+read -p "install dependencies (Y/n): " IFS_YES
+IFS_YES="${IFS_YES:-Y}"
+if [[ $IFS_YES =~ ^[Yy]$ ]]; then
+    echo "installing dependencies..."
+    sudo apt install -y \
+        git curl \
+        wget vim jq \
+        unzip neovim \
+        cmake gcc
+else
+    echo "stopping bootstrap..."
+    exit 0
+fi
+
+read -p "do you want to install programing tools? (Y/n) " IFS_YES
+IFS_YES="${IFS_YES:-Y}"
+if [[ $IFS_YES =~ ^[Yy]$ ]]; then
+    echo "installing programing tools..."
+    curl -o- "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-language-tools.sh" | sh 
+else
+    echo "skipping programing tools..."
+fi
+
