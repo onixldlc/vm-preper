@@ -25,3 +25,11 @@ else
     echo "skipping programing tools..."
 fi
 
+read -p "do you want to install containerization tools? (Y/n) " IFS_YES
+IFS_YES="${IFS_YES:-Y}"
+if [[ $IFS_YES =~ ^[Yy]$ ]]; then
+    echo "installing containerization tools..."
+    curl -o- "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-container-tools.sh" | sh 
+else
+    echo "skipping containerization tools..."
+fi
