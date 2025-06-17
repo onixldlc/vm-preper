@@ -16,4 +16,5 @@ rm btop-x86_64-linux-musl.tbz
 
 # add theme
 wget https://raw.githubusercontent.com/catppuccin/btop/refs/heads/main/themes/catppuccin_macchiato.theme
+mkdir -p $HOME/.config/btop/themes
 mv catppuccin_macchiato.theme $HOME/.config/btop/themes
