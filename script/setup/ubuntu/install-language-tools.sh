@@ -17,6 +17,7 @@ for i in $(echo $LANGS | tr "," "\n"); do
         sudo add-apt-repository ppa:longsleep/golang-backports
         sudo apt update
         sudo apt install -y golang-go
+        echo 'export PATH=$PATH:$HOME/go/bin' >> $HOME/.profile
 
     # install nodejs
     elif [[ $i =~ ^[2]$ ]]; then
