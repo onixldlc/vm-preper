@@ -13,11 +13,12 @@ for i in $(echo $LANGS | tr "," "\n"); do
 
     # install golang
     if [[ $i =~ ^[1]$ ]]; then
-        echo "installing golang..."
-        sudo add-apt-repository ppa:longsleep/golang-backports
-        sudo apt update
-        sudo apt install -y golang-go
-        echo 'export PATH=$PATH:$HOME/go/bin' >> $HOME/.profile
+        # echo "installing golang..."
+        # sudo add-apt-repository ppa:longsleep/golang-backports
+        # sudo apt update
+        # sudo apt install -y golang-go
+        # echo 'export PATH=$PATH:$HOME/go/bin' >> $HOME/.profile
+        source <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/misc/golang.sh") 
 
     # install nodejs
     elif [[ $i =~ ^[2]$ ]]; then
