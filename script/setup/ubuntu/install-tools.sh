@@ -6,7 +6,7 @@ read -p "install dependencies (Y/n): " IFS_YES
 IFS_YES="${IFS_YES:-Y}"
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "installing dependencies..."
-    sudo apt install -y \
+    sudo apt update && sudo apt install -y \
         git curl \
         wget vim jq \
         unzip neovim \
