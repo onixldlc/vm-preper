@@ -13,4 +13,5 @@ sudo tar -C "/usr/local" -xvzf "${LATEST_GO//\/dl\/}"
 rm "${LATEST_GO//\/dl\/}"
 
 # add extraction path to $PATH
-echo "export PATH=$PATH:/usr/local/go/bin" >> "$HOME/.profile"
+echo 'export PATH=$PATH:/usr/local/go/bin' >> "$HOME/.profile"
+echo 'export PATH=$PATH:$HOME/go/bin' >> $HOME/.profile
