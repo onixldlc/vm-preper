@@ -6,6 +6,7 @@ echo "1. btop (requires: cmake)"
 echo "2. ytop (requires: rust)"
 echo "3. lazygit (requires: go)"
 echo "4. lazydocker (requires: go)"
+echo "5. neofetch"
 read -p "Select a tool to install (1): " tool_choice
 tool_choice="${tool_choice:-1}"
 
@@ -25,6 +26,11 @@ for i in $(echo $tool_choice | tr "," "\n"); do
     elif [[ $i -eq 4 ]]; then
         echo "Installing lazydocker..."
         go install github.com/jesseduffield/lazydocker@latest
+
+    elif [[ $i -eq 5 ]]; then
+        echo "Installing neofetch..."
+        sudo apt-get update
+        sudo apt-get install neofetch -y
 
     else
         echo "Invalid choice: $i"
