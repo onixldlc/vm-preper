@@ -51,3 +51,12 @@ if [[ $IFS_YES =~ ^[Yy]$ ]]; then
 else
     echo "skipping misc tools..."
 fi
+
+read -p "do you want to clear command history? (N/y) " IFS_YES
+IFS_YES="${IFS_YES:-N}"
+if [[ $IFS_YES =~ ^[Yy]$ ]]; then
+    echo "clearing history..."
+    history -c && history -w 
+else
+    echo "skipping clear history..."
+fi
