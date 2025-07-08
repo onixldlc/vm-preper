@@ -35,7 +35,7 @@ for i in $(echo $LANGS | tr "," "\n"); do
     # install rust
     elif [[ $i =~ ^[4]$ ]]; then
         echo "installing rust..."
-        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | bash -s -- -y
 
     else
         echo "invalid selection, please select a valid language."
