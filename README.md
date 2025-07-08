@@ -12,6 +12,10 @@ or run preconfigured setup like so:
 ```sh
 source <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/install-all.sh")
 ```
+or bypass the ubuntu check:
+```sh
+source <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-tools.sh")
+```
 
 ### language installer
 to run just the programing language installer, you can use
