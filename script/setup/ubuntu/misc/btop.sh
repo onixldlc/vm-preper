@@ -18,3 +18,15 @@ rm btop-x86_64-linux-musl.tbz
 wget https://raw.githubusercontent.com/catppuccin/btop/refs/heads/main/themes/catppuccin_macchiato.theme
 mkdir -p $HOME/.config/btop/themes
 mv catppuccin_macchiato.theme $HOME/.config/btop/themes
+
+# add theme to root (optional)
+read -p "install theme for root? (Y/n) " IFS_YES
+IFS_YES="${IFS_YES:-Y}"
+if [[ $IFS_YES =~ ^[Yy]$ ]]; then
+    echo "adding theme to root..."
+    sudo mkdir -p /root/.config/btop/themes
+    sudo ln -s $HOME/.config/btop/themes /root/.config/btop/themes
+    source <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-network-tools.sh") 
+else
+    echo "skipping theme for root..."
+fi
