@@ -7,7 +7,9 @@ simple script list to configure newly configured vm for quick deployment
 to run the whole setup you can use 
 ```sh
 source <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/init.sh")
-# or run preconfigured setup
+```
+or run preconfigured setup like so:
+```sh
 source <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/install-all.sh")
 ```
 
