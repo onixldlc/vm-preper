@@ -26,6 +26,7 @@ for i in $(echo $tool_choice | tr "," "\n"); do
     elif [[ $i -eq 4 ]]; then
         echo "Installing lazydocker..."
         go install github.com/jesseduffield/lazydocker@latest
+        sudo ln -s $HOME/go/bin/lazydocker /bin/
 
     elif [[ $i -eq 5 ]]; then
         echo "Installing neofetch..."
