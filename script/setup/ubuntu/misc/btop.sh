@@ -26,7 +26,6 @@ if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "adding theme to root..."
     sudo mkdir -p /root/.config/btop/themes
     sudo ln -s $HOME/.config/btop/themes /root/.config/btop/themes
-    source <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/install-network-tools.sh") 
 else
     echo "skipping theme for root..."
 fi
