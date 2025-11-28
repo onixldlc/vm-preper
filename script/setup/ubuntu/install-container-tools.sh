@@ -10,7 +10,7 @@ for i in $(echo $LANGS | tr "," "\n"); do
 
     # install docker
     if [[ $i =~ ^[1]$ ]]; then
-        source <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/docker/install-docker.sh") 
+        bash <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/docker/install-docker.sh") 
         # sudo apt-get update
         # sudo apt-get -y install ca-certificates curl
         # sudo install -m 0755 -d /etc/apt/keyrings

@@ -13,7 +13,7 @@ tool_choice="${tool_choice:-1}"
 for i in $(echo $tool_choice | tr "," "\n"); do
     if [[ $i -eq 1 ]]; then
         echo "Installing btop..."
-        source <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/misc/btop.sh")
+        bash <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/misc/btop.sh")
 
     elif [[ $i -eq 2 ]]; then
         echo "Installing ytop..."
