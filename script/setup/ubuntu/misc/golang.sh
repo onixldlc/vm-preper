@@ -4,9 +4,9 @@
 . /etc/os-release
 
 if [[ "$ID" == "ubuntu" ]]; then
-        sudo add-apt-repository ppa:longsleep/golang-backports -y
-        sudo apt update
-        sudo apt install -y golang-go
+        sudo -E add-apt-repository ppa:longsleep/golang-backports -y
+        sudo -E apt update
+        sudo -E apt install -y golang-go
 else
         # get the lates version of go
         LATEST_GO="$(curl -s https://go.dev/dl/ |
@@ -17,7 +17,7 @@ else
         curl -OLs "https://go.dev${LATEST_GO}"
         
         # extract the tar
-        sudo tar -C "/usr/local" -xvzf "${LATEST_GO//\/dl\/}"
+        sudo -E tar -C "/usr/local" -xvzf "${LATEST_GO//\/dl\/}"
         rm "${LATEST_GO//\/dl\/}"
         
         # add extraction path to $PATH
