@@ -24,8 +24,9 @@ read -p "install theme for root? (Y/n) " IFS_YES
 IFS_YES="${IFS_YES:-Y}"
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "adding theme to root..."
-    sudo mkdir -p /root/.config/btop/themes
-    sudo ln -s $HOME/.config/btop/themes /root/.config/btop/themes
+    #sudo mkdir -p /root/.config/btop/themes
+    USER_HOME=${HOME}
+    sudo ln -s $USER_HOME/.config/btop/themes /root/.config/btop/themes
 else
     echo "skipping theme for root..."
 fi
