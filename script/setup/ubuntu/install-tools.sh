@@ -13,7 +13,7 @@ if [[ $IFS_YES =~ ^[Yy]$ ]]; then
         cmake gcc
 else
     echo "stopping bootstrap..."
-    exit 0
+    #exit 0
 fi
 
 read -p "do you want to install programing tools? (Y/n) " IFS_YES
