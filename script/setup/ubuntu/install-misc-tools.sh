@@ -10,6 +10,9 @@ echo "5. neofetch"
 read -p "Select a tool to install (1): " tool_choice
 tool_choice="${tool_choice:-1}"
 
+### reload bashrc incase of changes whilst running the script
+source ~/.bashrc
+
 for i in $(echo $tool_choice | tr "," "\n"); do
     if [[ $i -eq 1 ]]; then
         echo "Installing btop..."
