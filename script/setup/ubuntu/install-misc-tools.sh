@@ -7,6 +7,7 @@ echo "2. ytop (requires: rust)"
 echo "3. lazygit (requires: go)"
 echo "4. lazydocker (requires: go)"
 echo "5. neofetch"
+echo "6. rsync"
 read -p "Select a tool to install (1): " tool_choice
 tool_choice="${tool_choice:-1}"
 
@@ -35,6 +36,11 @@ for i in $(echo $tool_choice | tr "," "\n"); do
         echo "Installing neofetch..."
         sudo apt-get update
         sudo apt-get install neofetch -y
+
+    elif [[ $i -eq 6 ]]; then
+        echo "Installing rsync..."
+        sudo apt-get update
+        sudo apt-get install rsync -y
 
     else
         echo "Invalid choice: $i"
