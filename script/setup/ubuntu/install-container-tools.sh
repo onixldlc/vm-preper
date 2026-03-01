@@ -9,7 +9,7 @@ LANGS="${LANGS:-1}"
 for i in $(echo $LANGS | tr "," "\n"); do
 
     # install docker
-    if [[ $i =~ ^[1]$ ]]; then
+    if [[ $i =~ ^1$ ]]; then
         bash <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/docker/install-docker.sh") 
         # sudo apt-get update
         # sudo apt-get -y install ca-certificates curl
