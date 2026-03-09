@@ -29,6 +29,7 @@ for i in $(echo $LANGS | tr "," "\n"); do
     elif [[ $i =~ ^2$ ]]; then
         sudo apt-get update
         sudo apt-get install -y podman
+        echo 'DOCKER_HOST="unix:///run/user/1000/podman/podman.sock"' >> ~/.bashrc
 
     else
         echo "invalid selection, please select a valid language."
