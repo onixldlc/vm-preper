@@ -28,7 +28,7 @@ for i in $(echo $LANGS | tr "," "\n"); do
         # sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     elif [[ $i =~ ^2$ ]]; then
         sudo apt-get update
-        sudo apt-get install -y podman
+        sudo apt-get install -y podman podman-compose
         echo 'DOCKER_HOST="unix:///run/user/1000/podman/podman.sock"' >> ~/.bashrc
 
     else
