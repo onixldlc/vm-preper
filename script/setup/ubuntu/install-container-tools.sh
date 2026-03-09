@@ -27,7 +27,8 @@ for i in $(echo $LANGS | tr "," "\n"); do
 
         # sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     else if [[ $i =~ ^2$ ]]; then
-        apt-get install -y podman
+        sudo apt-get update
+        sudo apt-get install -y podman
 
     else
         echo "invalid selection, please select a valid language."
