@@ -26,7 +26,7 @@ for i in $(echo $LANGS | tr "," "\n"); do
         # sudo apt-get update
 
         # sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-    if [[ $i =~ ^2$ ]]; then
+    else if [[ $i =~ ^2$ ]]; then
         apt-get install -y podman
 
     else
