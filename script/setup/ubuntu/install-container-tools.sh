@@ -3,6 +3,7 @@
 ### install containerization tool
 echo "containerization list:"
 echo "1. docker"
+echo "2. podman"
 read -p "select containerization platform you want to install (1): " LANGS
 LANGS="${LANGS:-1}"
 
@@ -25,6 +26,8 @@ for i in $(echo $LANGS | tr "," "\n"); do
         # sudo apt-get update
 
         # sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    if [[ $i =~ ^2$ ]]; then
+        apt-get install -y podman
 
     else
         echo "invalid selection, please select a valid language."
