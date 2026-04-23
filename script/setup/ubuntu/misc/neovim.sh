@@ -20,6 +20,9 @@ _install_neovim_latest() {
     # tarball extracts as nvim-linux-<arch>/{bin,lib,share,...} — strip root dir into /usr/local
     sudo tar -C /usr/local -xzf /tmp/nvim.tar.gz --strip-components=1 || return 1
     rm /tmp/nvim.tar.gz
+    # symlink into /usr/bin so it's found regardless of PATH or stale shell hash
+    sudo ln -sf /usr/local/bin/nvim /usr/bin/nvim
+    hash -r 2>/dev/null || true
     echo "Neovim installed: $(nvim --version | head -1)"
 }
 
