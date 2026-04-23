@@ -9,8 +9,11 @@ echo "4. lazydocker (requires: go)"
 echo "5. neofetch"
 echo "6. rsync"
 echo "7. neovim" 
-read -p "Select a tool to install (1): " tool_choice
-tool_choice="${tool_choice:-1}"
+tool_choice="${INSTALL_MISC:-}"
+if [ -z "$tool_choice" ]; then
+    read -p "Select a tool to install (1): " tool_choice
+    tool_choice="${tool_choice:-1}"
+fi
 
 ### reload bashrc incase of changes whilst running the script
 source ~/.bashrc

@@ -6,8 +6,11 @@ echo "1. golang"
 echo "2. nodejs"
 echo "3. python"
 echo "4. rust"
-read -p "select language you want to install (1,3,4): " LANGS
-LANGS="${LANGS:-1,3,4}"
+LANGS="${INSTALL_LANGS:-}"
+if [ -z "$LANGS" ]; then
+    read -p "select language you want to install (1,3,4): " LANGS
+    LANGS="${LANGS:-1,3,4}"
+fi
 
 for i in $(echo $LANGS | tr "," "\n"); do
 

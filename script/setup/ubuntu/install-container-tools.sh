@@ -4,8 +4,11 @@
 echo "containerization list:"
 echo "1. docker"
 echo "2. podman"
-read -p "select containerization platform you want to install (1): " LANGS
-LANGS="${LANGS:-1}"
+LANGS="${INSTALL_CONTAINERS:-}"
+if [ -z "$LANGS" ]; then
+    read -p "select containerization platform you want to install (1): " LANGS
+    LANGS="${LANGS:-1}"
+fi
 
 for i in $(echo $LANGS | tr "," "\n"); do
 
