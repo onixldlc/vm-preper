@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Safety: these are read-only diagnostic tools — they do NOT change network
+# configuration or restart interfaces, so they are safe to install over SSH.
+# The loop uses set +e so a single package failure won't disconnect the session.
+set +e
+
 ### install networking tool
 echo "networking tool list:"
 echo "1. nslookup, dig (dnsutils)"

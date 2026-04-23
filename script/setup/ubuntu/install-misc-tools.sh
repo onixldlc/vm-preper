@@ -15,8 +15,13 @@ if [ -z "$tool_choice" ]; then
     tool_choice="${tool_choice:-1}"
 fi
 
-### reload bashrc incase of changes whilst running the script
-source ~/.bashrc
+### reload profile/bashrc in case PATH changed (e.g. rust/go installs)
+[ -f "$HOME/.profile" ] && source "$HOME/.profile"
+[ -f "$HOME/.bashrc" ] && source "$HOME/.bashrc"
+# explicitly extend PATH for go and cargo if installed
+[ -d "$HOME/go/bin" ]          && export PATH="$PATH:$HOME/go/bin"
+[ -d "/usr/local/go/bin" ]     && export PATH="$PATH:/usr/local/go/bin"
+[ -d "$HOME/.cargo/bin" ]      && export PATH="$PATH:$HOME/.cargo/bin"
 
 for i in $(echo $tool_choice | tr "," "\n"); do
     if [[ $i -eq 1 ]]; then
