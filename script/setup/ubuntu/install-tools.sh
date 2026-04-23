@@ -9,8 +9,8 @@ if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     sudo apt update && sudo apt install -y \
         git curl \
         wget vim jq \
-        unzip neovim \
-        cmake gcc
+        unzip cmake \
+        gcc
 else
     echo "stopping bootstrap..."
     #exit 0

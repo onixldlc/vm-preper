@@ -8,6 +8,7 @@ echo "3. lazygit (requires: go)"
 echo "4. lazydocker (requires: go)"
 echo "5. neofetch"
 echo "6. rsync"
+echo "7. neovim" 
 read -p "Select a tool to install (1): " tool_choice
 tool_choice="${tool_choice:-1}"
 
@@ -41,6 +42,11 @@ for i in $(echo $tool_choice | tr "," "\n"); do
         echo "Installing rsync..."
         sudo apt-get update
         sudo apt-get install rsync -y
+
+    elif [[ $i -eq 6 ]]; then
+        echo "Installing neovim..."
+        sudo apt-get update
+        sudo apt-get install neovim -y
 
     else
         echo "Invalid choice: $i"
