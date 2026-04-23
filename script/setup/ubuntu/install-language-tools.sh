@@ -27,7 +27,9 @@ for i in $(echo $LANGS | tr "," "\n"); do
     elif [[ $i =~ ^2$ ]]; then
         echo "installing nodejs..."
         bash <(curl -sSf "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh")
-        source ~/.bashrc
+        # source nvm directly — Ubuntu's ~/.bashrc exits early in non-interactive shells
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
         nvm install node
 
     # install python

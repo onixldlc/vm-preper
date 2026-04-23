@@ -15,10 +15,12 @@ fi
 
 echo "Loading preset: $PRESET"
 
-# Export each KEY=VALUE line from the remote preset file, skipping comments and blanks
+# Export each KEY=VALUE line from the remote preset file, skipping comments and blanks.
+# Env vars already set in the environment take precedence over the preset file.
 while IFS='=' read -r key value; do
-    [[ -z "$key" || "$key" == \#* ]] && continue
-    export "$key=$value"
+    [[ -z "$key" || "$key" =~ ^[[:space:]]*# ]] && continue
+    key="${key// /}"   # strip any spaces around key
+    [[ -z "${!key}" ]] && export "$key=$value"
 done < <(curl -sSf "$REPO_RAW/$PRESET")
 
 echo "Starting install with preset: $PRESET"

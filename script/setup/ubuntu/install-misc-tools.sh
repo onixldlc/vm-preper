@@ -3,7 +3,7 @@
 ### install misc tools
 echo "misc tool list:"
 echo "1. btop (requires: cmake)"
-echo "2. ytop (requires: rust)"
+echo "2. bottom/btm (requires: rust)"
 echo "3. lazygit (requires: go)"
 echo "4. lazydocker (requires: go)"
 echo "5. neofetch"
@@ -29,8 +29,8 @@ for i in $(echo $tool_choice | tr "," "\n"); do
         bash <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/misc/btop.sh")
 
     elif [[ $i -eq 2 ]]; then
-        echo "Installing ytop..."
-        cargo install ytop
+        echo "Installing bottom (btm)..."
+        cargo install bottom
 
     elif [[ $i -eq 3 ]]; then
         echo "Installing lazygit..."
