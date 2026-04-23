@@ -1,7 +1,36 @@
 #!/bin/bash
 
-# install neovim
-sudo apt-get install neovim -y
+# install neovim — tries latest prebuilt tarball from GitHub, falls back to apt
+_install_neovim_latest() {
+    local arch asset url
+    arch="$(uname -m)"
+    case "$arch" in
+        x86_64)        asset="nvim-linux-x86_64.tar.gz" ;;
+        aarch64|arm64) asset="nvim-linux-arm64.tar.gz" ;;
+        *)             echo "Unsupported arch: $arch"; return 1 ;;
+    esac
+
+    url="$(curl -sSf "https://api.github.com/repos/neovim/neovim/releases/latest" \
+        | grep -o '"browser_download_url": "[^"]*'"${asset}"'"' \
+        | head -1 | cut -d'"' -f4)"
+    [[ -z "$url" ]] && echo "Could not resolve latest neovim release URL" && return 1
+
+    echo "Downloading latest neovim: $url"
+    curl -sSfL "$url" -o /tmp/nvim.tar.gz || return 1
+    # tarball extracts as nvim-linux-<arch>/{bin,lib,share,...} — strip root dir into /usr/local
+    sudo tar -C /usr/local -xzf /tmp/nvim.tar.gz --strip-components=1 || return 1
+    rm /tmp/nvim.tar.gz
+    echo "Neovim installed: $(nvim --version | head -1)"
+}
+
+echo "Installing neovim..."
+if _install_neovim_latest; then
+    echo "Latest neovim installed successfully."
+else
+    echo "Falling back to apt..."
+    sudo apt-get update
+    sudo apt-get install neovim -y
+fi
 
 # setup neovim configs (if they want)
 IFS_YES="${NVCHAD:-}"
