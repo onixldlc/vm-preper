@@ -11,7 +11,7 @@ if [ -z "$IFS_YES" ]; then
 fi
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "adding nvchad..."
-    git clone git@github.com:onixldlc/nvim-config.git $HOME/.config/nvim
+    git clone https://github.com/onixldlc/nvim-config.git $HOME/.config/nvim
 
     IFS_YES2="${NVCHAD_ROOT:-}"
     if [ -z "$IFS_YES2" ]; then
@@ -20,7 +20,8 @@ if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     fi
     if [[ $IFS_YES2 =~ ^[Yy]$ ]]; then
         echo "adding nvchad to root..."
-        sudo rm -d /root/.config/nvim
+        sudo mkdir -p /root/.config
+        sudo rm -rf /root/.config/nvim
         sudo ln -s $HOME/.config/nvim /root/.config/nvim
     else
         echo "skipping nvchad for root..."

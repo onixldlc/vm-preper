@@ -1,28 +1,21 @@
 #!/bin/bash
 
-# Detect if OS is Ubuntu
-. /etc/os-release
+# Always download the latest stable Go directly from go.dev (cross-distro, always >= latest)
+LATEST_GO="$(curl -sSf https://go.dev/dl/ | \
+    grep -oE 'href="/dl/go[0-9.]+\.linux-amd64\.tar\.gz"' | \
+    grep -v 'rc\|beta' | \
+    head -n 1 | \
+    sed 's/href="\(.*\)"/\1/')"
 
-if [[ "$ID" == "ubuntu" ]]; then
-        sudo -E add-apt-repository ppa:longsleep/golang-backports -y
-        sudo -E apt update
-        sudo -E apt install -y golang-go
-else
-        # get the lates version of go
-        LATEST_GO="$(curl -s https://go.dev/dl/ |
-                grep -E 'class="download".+linux-amd64.tar.gz' |
-                grep -v 'rc' |
-                head -n 1 |
-                sed 's/.*href=\"\(.\+\)\".*/\1/')"
-        curl -OLs "https://go.dev${LATEST_GO}"
-        
-        # extract the tar
-        sudo -E tar -C "/usr/local" -xvzf "${LATEST_GO//\/dl\/}"
-        rm "${LATEST_GO//\/dl\/}"
-        
-        # add extraction path to $PATH
-        echo 'export PATH=$PATH:/usr/local/go/bin' >> "$HOME/.profile"
-fi
+echo "Installing Go from https://go.dev${LATEST_GO}"
+curl -OLs "https://go.dev${LATEST_GO}"
 
-echo 'export PATH=$PATH:$HOME/go/bin' >> $HOME/.profile
+sudo tar -C /usr/local -xzf "${LATEST_GO##*/}"
+rm "${LATEST_GO##*/}"
+
+echo 'export PATH=$PATH:/usr/local/go/bin' >> "$HOME/.profile"
+echo 'export PATH=$PATH:$HOME/go/bin' >> "$HOME/.profile"
+
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
+echo "Go installed: $(go version)"
 
