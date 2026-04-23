@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# install-all.sh — unattended full install with Docker
-# Installs: all language tools, Docker, network tools, and all misc tools.
-# For a custom selection use install-preset.sh instead.
+# install-all.sh — unattended full dev install with Docker.
+# For a custom selection: bash <(curl -sSf "$REPO_RAW/install-preset.sh") config/my-preset.env
 
 REPO_RAW="https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main"
 
@@ -12,16 +11,16 @@ if [ ! -f /etc/lsb-release ]; then
 fi
 
 echo "Running on Ubuntu environment. (install-all setup)"
-echo "starting the installer..."
 
+# These override anything in the preset file — install-preset.sh handles name->ID resolution.
 export INSTALL_DEPS=Y
-export INSTALL_LANGS=1,2,3,4        # go, node, python, rust
-export INSTALL_CONTAINERS=1         # docker only
-export INSTALL_NETWORKS=1,2,3,4,6,8,10,11  # dnsutils, iproute2, ping, traceroute, mtr, tcpdump, net-tools, telnet
-export INSTALL_MISC=1,2,4,5,6,7    # btop, bottom, lazydocker, neofetch, rsync, neovim
-export CLEAR_HISTORY=N
+export INSTALL_LANGS=go,node,python,rust
+export INSTALL_CONTAINERS=docker
+export INSTALL_NETWORKS=nslookup,ip,ping,traceroute,mtr,tcpdump,net-tools,telnet
+export INSTALL_MISC=btop,bottom,lazydocker,neofetch,rsync,neovim
+export CLEAR_HISTORY=Y
 export BTOP_ROOT_THEME=Y
 export NVCHAD=Y
 export NVCHAD_ROOT=Y
 
-bash <(curl -sSf "$REPO_RAW/script/setup/ubuntu/install-tools.sh")
+bash <(curl -sSf "$REPO_RAW/install-preset.sh")
