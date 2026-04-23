@@ -43,10 +43,10 @@ for i in $(echo $tool_choice | tr "," "\n"); do
         sudo apt-get update
         sudo apt-get install rsync -y
 
-    elif [[ $i -eq 6 ]]; then
+    elif [[ $i -eq 7 ]]; then
         echo "Installing neovim..."
         sudo apt-get update
-        sudo apt-get install neovim -y
+        bash <(curl -sSf "https://raw.githubusercontent.com/onixldlc/vm-preper/refs/heads/main/script/setup/ubuntu/misc/neovim.sh")
 
     else
         echo "Invalid choice: $i"
