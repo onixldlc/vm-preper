@@ -19,10 +19,13 @@ else
     #exit 0
 fi
 
-IFS_YES="${INSTALL_LANGS:+Y}"
-if [ -z "$IFS_YES" ]; then
+if [[ -z "${INSTALL_LANGS:-}" ]]; then
     read -p "do you want to install programing tools? (Y/n) " IFS_YES
     IFS_YES="${IFS_YES:-Y}"
+elif [[ "${INSTALL_LANGS}" =~ ^[Nn] ]]; then
+    IFS_YES="N"
+else
+    IFS_YES="Y"
 fi
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "installing programing tools..."
@@ -31,10 +34,13 @@ else
     echo "skipping programing tools..."
 fi
 
-IFS_YES="${INSTALL_CONTAINERS:+Y}"
-if [ -z "$IFS_YES" ]; then
+if [[ -z "${INSTALL_CONTAINERS:-}" ]]; then
     read -p "do you want to install containerization tools? (Y/n) " IFS_YES
     IFS_YES="${IFS_YES:-Y}"
+elif [[ "${INSTALL_CONTAINERS}" =~ ^[Nn] ]]; then
+    IFS_YES="N"
+else
+    IFS_YES="Y"
 fi
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "installing containerization tools..."
@@ -43,10 +49,13 @@ else
     echo "skipping containerization tools..."
 fi
 
-IFS_YES="${INSTALL_NETWORKS:+Y}"
-if [ -z "$IFS_YES" ]; then
+if [[ -z "${INSTALL_NETWORKS:-}" ]]; then
     read -p "do you want to install networking tools? (Y/n) " IFS_YES
     IFS_YES="${IFS_YES:-Y}"
+elif [[ "${INSTALL_NETWORKS}" =~ ^[Nn] ]]; then
+    IFS_YES="N"
+else
+    IFS_YES="Y"
 fi
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "installing networking tools..."
@@ -55,10 +64,13 @@ else
     echo "skipping networking tools..."
 fi
 
-IFS_YES="${INSTALL_MISC:+Y}"
-if [ -z "$IFS_YES" ]; then
+if [[ -z "${INSTALL_MISC:-}" ]]; then
     read -p "do you want to install misc tools? (Y/n) " IFS_YES
     IFS_YES="${IFS_YES:-Y}"
+elif [[ "${INSTALL_MISC}" =~ ^[Nn] ]]; then
+    IFS_YES="N"
+else
+    IFS_YES="Y"
 fi
 if [[ $IFS_YES =~ ^[Yy]$ ]]; then
     echo "installing misc tools..."
